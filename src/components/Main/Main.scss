@@ -1,0 +1,35 @@
+.app-main {
+	position: relative;
+	width: 100%;
+	height: 100%;
+  overflow-x: hidden;
+
+	&-bg {
+      width: 200%;
+      height: 100%;
+      position: fixed;
+      transform: rotate(-10deg);
+      transform-origin: center;
+      top: -40%;
+      left: -50%;
+      background-color: #AAD8D3;
+      // display: none;
+      z-index: -1;
+      animation: 2s bg ease;
+    }
+
+    @keyframes bg {
+      0% {
+        top: -300%;
+      }
+      60% {
+        top: -300%;
+      }
+      85% {
+        top: -40%;
+      }
+      100% {
+      	top: -40%;
+      }
+    }
+}

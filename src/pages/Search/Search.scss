@@ -1,0 +1,19 @@
+.app-main-search {
+	display: block;
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
+    position: relative;
+    opacity: 1;
+    animation: op .5s;
+    margin-top: 10%;
+}
+
+@keyframes op {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

@@ -1,0 +1,122 @@
+.app-main-list {
+	display: block;
+    height: 100px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 0px;
+
+    h2 {
+    	font-size: 18px;
+    }
+
+	&-item {
+		height: 75px;
+   		width: 100%;
+   		margin-bottom: 10px;
+   		display: flex;
+   		align-items: center;
+   		padding: 5px 10px;
+   		justify-content: space-between;
+   		background: #fff;
+   		border-radius: 5px;
+   		-webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+		-o-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+   		box-sizing: border-box;
+   		transition: .2s all ease;
+   		cursor: pointer;
+
+   		.title {
+   			margin: 0;
+   			margin-left: 10px;
+   			text-align: left;
+   		}
+
+   		&:hover {
+   			transform: scale(1.05);
+   			background-color: darken(#fff, 3%);
+   		}
+
+		a {
+			display: grid;
+    		align-items: center;
+    		grid-template-columns: 60px 6fr 1fr;
+    		width: 100%;
+		}
+
+		&-wrap {
+			width: 60px;
+			height: 60px;
+			display: block;
+			border-radius: 50%;
+			overflow: hidden;
+
+			img {
+				height: 100%;
+				width: auto;
+			}
+		}
+
+		&-login {
+			margin-left: 20px;
+			font-size: 22px;
+		}
+
+		&-description {
+			display: flex;
+    		flex-flow: column;
+    		margin-right: 10px;
+    		width: 100px;
+
+    		&-language {
+    			width: 10px;
+    			height: 10px;
+    			display: flex;
+    			align-items: center;
+    			margin-top: 5px;
+    			border-radius: 50%;
+    			margin-right: 10px;
+
+    			&.typescript {
+    				background-color: #2b7489;
+    			}
+    			&.javascript {
+    				background-color: #f1e05a;
+    			}
+    			&.css {
+    				background-color: #563d7c;
+    			}
+    			&.html {
+    				background-color: #e34c26;
+    			}
+    			&.c++ {
+    				background-color: #f34b7d;
+    			}
+    			&.ruby {
+    				background-color: #701516;
+    			}
+    			&.kotlin {
+    				background-color: #a97bff;
+    			}
+    			&.go {
+    				background-color: #00add8;
+    			}
+    			&.python {
+    				background-color: #3572a5;
+    			}
+    			&.c-sharp {
+    				background-color: #178600;
+    			}
+    			&.c {
+    				background-color: #555555;
+    			}
+    			&.haskell {
+    				background-color: #5e5086;
+    			}
+    			&.java {
+    				background-color: #b07219;
+    			}
+    		}
+		}
+	}
+}
