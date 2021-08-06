@@ -5,6 +5,15 @@ import "./List.scss";
 
 const List = ({ data, type }) => {
 
+	// function getRandomColor() {
+	//   let letters = '0123456789ABCDEF';
+	//   let color = '#';
+	//   for (let i = 0; i < 6; i++) {
+	//     color += letters[Math.floor(Math.random() * 16)];
+	//   }
+	//   return color;
+	// }
+
 	if (type === "users") {	
 		return (
 			<ul className="app-main-list">
@@ -36,8 +45,8 @@ const List = ({ data, type }) => {
 				{
 					data.map(item => {
 						return (
-							<a href={item.html_url}>
-								<li className="app-main-list-item" key={item.id}>
+							<a href={item.html_url} key={item.id}>
+								<li className="app-main-list-item">
 										<span className="title">{item.name}</span>
 
 										<div className="app-main-list-item-description">
@@ -45,7 +54,7 @@ const List = ({ data, type }) => {
 
 											{item.language && 
 												<div className="app-main-list-item-description-language">
-													<div className={`app-main-list-item-description-language ${item.language.toLowerCase()}`}></div>
+													<div className={`app-main-list-item-description-language ${item.language.toLowerCase() !== ('c++' || 'c#') ? item.language.toLowerCase() : (item.language.toLowerCase() === 'c++' ? 'cpp' : 'c-sharp')}`}></div>
 													<span>{item.language}</span>
 												</div>
 											}

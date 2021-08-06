@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Icon from "../../components/Icon";
@@ -23,7 +23,7 @@ const User: React.FC<UserProps> = () => {
 
 	let request = useParams();
 
-	const getRepos = async (name) => {
+	const getRepos = useCallback(async (name) => {
 		try {
 			return await axios.get(`https://api.github.com/users/${name}/repos`)
 				.then((res) => {
@@ -33,10 +33,10 @@ const User: React.FC<UserProps> = () => {
 		catch (e) {
 			console.log(e)
 		}
-	}
+	}, [data])
 
 
-	const getUser = async () => {
+	const getUser = useCallback(async () => {
 		try {		
 			await axios.get(`https://api.github.com/users/${request.name}`)
 				.then(async res => {
@@ -47,7 +47,7 @@ const User: React.FC<UserProps> = () => {
 		catch (e) {
 			console.log(e)
 		}
-	}
+	}, [request.name])
 
 
 
@@ -59,7 +59,7 @@ const User: React.FC<UserProps> = () => {
 		else if (data && !data.repos) {
 			getRepos(data.login)
 		}
-	}, [data]);
+	}, [data, getRepos, getUser]);
 			
 	
 	if (!data) {

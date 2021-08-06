@@ -8,9 +8,9 @@ import User from "../../pages/User"
 
 export const Result = createContext(null);
 
-const Main = () => {
+const Main: React.FC = () => {
 
-  const [result, setResult] = useState(null)
+  const [result, setResult] = useState([])
   
 
   return (

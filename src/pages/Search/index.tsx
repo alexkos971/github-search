@@ -8,15 +8,16 @@ import "./Search.scss";
 import axios from "axios"
 
 interface SearchProps {
-	data: Object[];
 	placeholder: string;
 	disabled?: boolean;
 	onChange: () => void;
+	result: Array<Object>;
+	setResult: (result) => typeof result;
 	type: string;
 }
 
 const Search: React.FC<SearchProps>  = () => {
-	let { result, setResult } = useContext(Result);
+	let { result, setResult } = useContext<SearchProps>(Result);
 
     const getData = async (username: string) => {
     	try {  		
@@ -24,18 +25,6 @@ const Search: React.FC<SearchProps>  = () => {
    				.then((res) => {
    					return setResult(res.data.items);		
    				});
-   				// .then(async () => {
- 							// let newRes = result;
-
- 							// for (let item of newRes) {
- 							// 	await axios.get(`https://api.github.com/users/${item.login}/repos`)
- 							// 		.then(res => {
- 							// 			item.repos_length = res.data.length
- 							// 		});
- 							// setResult(newRes)
- 							// }
-
-   				// })
    			}	
     	catch (e) {
     		return <h2 className="title">Not found</h2>
@@ -49,15 +38,14 @@ const Search: React.FC<SearchProps>  = () => {
 
 	const [ loadAnimate, setLoadAnimate ] = useState(false);
 
-	let timer = setTimeout(() => {
-	    setLoadAnimate(true);
-	}, 2200);
 
 	useEffect(() => {
-		return () => {
-			clearTimeout(timer)
-		} 
-	}, [timer])
+		let timer = setTimeout(() => {
+		    setLoadAnimate(true);
+		}, 2200);
+
+		return () => clearTimeout(timer)
+	}, [])
 
 		return (
 			<>
@@ -67,7 +55,7 @@ const Search: React.FC<SearchProps>  = () => {
 
 					<Input placeholder="Type some user" disabled={!loadAnimate} onChange={handleChange}/>
 
-					{result && 
+					{result.length > 0 && 
 						<>
 							<h2>Results</h2>
 							<List data={result} type="users"/>
