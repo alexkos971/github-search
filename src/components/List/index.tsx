@@ -19,7 +19,7 @@ const List = ({ data, type }) => {
 									
 									<span className="app-main-list-item-login">{item.login}</span>
 
-									<span className="app-main-list-item-repo">Repo: {item.login}</span>
+									{item.repos_length && <span className="app-main-list-item-repo">Repos: {item.repos_length}</span>}
 								</Link>
 							</li>
 						)
@@ -36,20 +36,22 @@ const List = ({ data, type }) => {
 				{
 					data.map(item => {
 						return (
-							<li className="app-main-list-item" key={item.id}>
-								<span className="title">{item.name}</span>
+							<a href={item.html_url}>
+								<li className="app-main-list-item" key={item.id}>
+										<span className="title">{item.name}</span>
 
-								<div className="app-main-list-item-description">
-									<span>{item.forks} Forks</span>
+										<div className="app-main-list-item-description">
+											<span>{item.forks} Forks</span>
 
-									{item.language && 
-										<div className="app-main-list-item-description-language">
-											<div className={`app-main-list-item-description-language ${item.language.toLowerCase()}`}></div>
-											<span>{item.language}</span>
+											{item.language && 
+												<div className="app-main-list-item-description-language">
+													<div className={`app-main-list-item-description-language ${item.language.toLowerCase()}`}></div>
+													<span>{item.language}</span>
+												</div>
+											}
 										</div>
-									}
-								</div>
-							</li>
+								</li>
+							</a>
 						)
 					})
 				}

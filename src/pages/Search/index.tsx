@@ -22,8 +22,20 @@ const Search: React.FC<SearchProps>  = () => {
     	try {  		
    			return await axios.get(`https://api.github.com/search/users?q=${username}`)
    				.then((res) => {
-   					setResult(res.data.items);
-   				})
+   					return setResult(res.data.items);		
+   				});
+   				// .then(async () => {
+ 							// let newRes = result;
+
+ 							// for (let item of newRes) {
+ 							// 	await axios.get(`https://api.github.com/users/${item.login}/repos`)
+ 							// 		.then(res => {
+ 							// 			item.repos_length = res.data.length
+ 							// 		});
+ 							// setResult(newRes)
+ 							// }
+
+   				// })
    			}	
     	catch (e) {
     		return <h2 className="title">Not found</h2>

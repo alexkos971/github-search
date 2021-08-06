@@ -110,3 +110,31 @@
     	}
     }
 }
+
+@media screen and (max-width: 480px) {
+    .app-main-profile {
+        width: 90%;
+
+        &-description {
+            display: block;
+
+            &-avatar {
+                width: auto;
+                height: 300px;
+                margin: 0 auto;
+                border-radius: 10px;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &-text {
+                margin-top: 20px;
+            }
+        }
+    }
+}

@@ -21,3 +21,9 @@
         background-color: #F4F6F8 !important;
 	}
 }
+
+@media screen and (max-width: 480px) {
+    .app-main-input {
+        width: 100%;
+    }
+}

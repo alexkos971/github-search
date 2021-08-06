@@ -17,3 +17,11 @@
 		opacity: 1;
 	}
 }
+
+
+@media screen and (max-width: 480px) {
+	.app-main-search {
+		width: 85%;
+		margin-top: 40%;
+	}	
+}
